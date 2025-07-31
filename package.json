@@ -1,0 +1,35 @@
+{
+  "name": "smart_maitre_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon --env-type=.env ./src/server.ts"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.3",
+    "sequelize": "^6.37.7"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "@types/sequelize": "^4.28.20",
+    "nodemon": "^3.1.10",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "./bin/*",
+    "./lib/*"
+  ],
+  "typings": "./lib/index.d.ts"
+}
