@@ -48,7 +48,7 @@ npm install
 Crie um arquivo .env na raiz do projeto com os dados do seu banco:
 
 ```bash
-SERVER_PORT=porta do servidor
+SERVER_PORT=porta
 DB_NAME=smart_maitre
 DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
