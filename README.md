@@ -18,12 +18,14 @@ API desenvolvida com Node.js, Express, TypeScript e Sequelize para gerenciar ped
 
 ```bash
 src/
-├── controllers/ # Lógica das rotas
-├── database/ # Configuração do banco e Sequelize
-├── models/ # Modelos de dados
-├── routes/ # Definição das rotas
-├── services/ # Lógica de negócios (em breve)
-└── app.ts # Ponto de entrada da aplicação
+├── controllers/
+├── database/
+├── middlewares/
+├── models/
+├── routes/
+├── services/
+├── types/
+└── server.ts
 ```
 
 ## Como Rodar o Projeto
@@ -46,11 +48,12 @@ npm install
 Crie um arquivo .env na raiz do projeto com os dados do seu banco:
 
 ```bash
-DB_HOST=localhost
-DB_PORT=5432
+SERVER_PORT=porta do servidor
+DB_NAME=smart_maitre
 DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
-DB_NAME=smart_maitre
+DB_HOST=localhost
+JWT_SECRET=segredo_super_secreto
 ```
 
 ### 4. Crie o banco de dados e rode o projeto
