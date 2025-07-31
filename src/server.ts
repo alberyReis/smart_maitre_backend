@@ -1,29 +1,29 @@
 import dotenv from 'dotenv'
-dotenv.config()
-
 import express from 'express'
-import { db } from './config/db'
+import { sequelize } from './database/database'
 
 const app = express()
+
+dotenv.config()
+
 app.use(express.json())
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.SERVER_PORT
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('Smart Maître backend rodando!')
 })
 
-const start = async () => {
-  try {
-    await db.authenticate()
-    console.log('Conexão com MySQL bem-sucedida')
+try {
+  sequelize.authenticate()
+  console.log('Conexão com MySQL bem-sucedida')
 
-    app.listen(PORT, () => {
-      console.log(`Servidor rodando na porta ${PORT}`)
-    })
-  } catch (error) {
-    console.error('Erro ao conectar no banco:', error)
-  }
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`)
+  })
+} catch (error) {
+  console.error('Erro ao conectar no banco:', error)
 }
 
-start()
+
+
