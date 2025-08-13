@@ -1,6 +1,17 @@
-import { DataTypes, Model } from 'sequelize'
-import { IClientAttributes, IClientCreationAttributes } from '../types/IClient'
+import { DataTypes, Model, Optional } from 'sequelize'
 import { sequelize } from '../database/database'
+
+interface IClientAttributes {
+    id: number
+    name: string
+    email: string
+    password: string
+    cpf: string
+    createdAt?: Date
+    updatedAt?: Date
+}
+
+interface IClientCreationAttributes extends Optional<IClientAttributes, 'id'> { }
 
 class ClientModel extends Model<IClientAttributes, IClientCreationAttributes> implements IClientAttributes {
     public id!: number

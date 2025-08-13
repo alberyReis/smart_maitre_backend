@@ -1,6 +1,18 @@
-import { DataTypes, Model } from 'sequelize'
-import { IEmployeeAttributes, IEmployeeCreationAttributes } from '../types/IEmployee'
+import { DataTypes, Model, Optional } from 'sequelize'
 import { sequelize } from '../database/database'
+
+interface IEmployeeAttributes {
+  id: number
+  name: string
+  email: string
+  password: string
+  registration: string
+  role: 'manager' | 'cook' | 'waiter'
+  createdAt?: Date
+  updatedAt?: Date
+}
+
+interface IEmployeeCreationAttributes extends Optional<IEmployeeAttributes, 'id'> {}
 
 class EmployeeModel extends Model<IEmployeeAttributes, IEmployeeCreationAttributes> implements IEmployeeAttributes {
   public id!: number

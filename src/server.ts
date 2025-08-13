@@ -1,25 +1,15 @@
-import dotenv from 'dotenv'
-import express from 'express'
 import { sequelize } from './database/database'
+import { createApp } from './app'
 
-const app = express()
-
-dotenv.config()
-
-app.use(express.json())
-
-const PORT = process.env.SERVER_PORT
-
-app.get('/', (_, res) => {
-  res.send('Smart Maître backend rodando!')
-})
+const app = createApp()
+const port = process.env.SERVER_PORT
 
 try {
   sequelize.authenticate()
   console.log('Conexão com MySQL bem-sucedida')
 
-  app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`)
+  app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`)
   })
 } catch (error) {
   console.error('Erro ao conectar no banco:', error)
