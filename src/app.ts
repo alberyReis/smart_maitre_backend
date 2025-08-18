@@ -5,7 +5,7 @@ const createApp = () => {
     const app = express()
 
     app.use(express.json())
-    app.get('/', router)
+    app.use('/api/smartmaitre', router)
 
     return app
 }
