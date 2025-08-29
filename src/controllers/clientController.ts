@@ -7,7 +7,7 @@ export const clientController = {
     const response = await clientService.createUser({ name, email, password, cpf })
     res.status(response.statusCode).json({
       message: response.message,
-      data: response.body
+      data: response.body,
     })
   },
 
@@ -15,7 +15,7 @@ export const clientController = {
     const response = await clientService.getAllClients()
     res.status(response.statusCode).json({
       message: response.message,
-      data: response.body
+      data: response.body,
     })
   },
 
@@ -24,7 +24,7 @@ export const clientController = {
     const response = await clientService.getClientById(id)
     res.status(response.statusCode).json({
       message: response.message,
-      data: response.body
+      data: response.body,
     })
   },
 
@@ -34,7 +34,6 @@ export const clientController = {
     const response = await clientService.updateClientEmailAndPasswordById(id, { email, password })
     res.status(response.statusCode).json({
       message: response.message,
-      data: response.body
     })
   },
 
@@ -43,7 +42,6 @@ export const clientController = {
     const response = await clientService.deleteClient(id)
     res.status(response.statusCode).json({
       message: response.message,
-      data: response.body
     })
   },
 }

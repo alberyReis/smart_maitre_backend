@@ -30,13 +30,9 @@ const clientRepository = {
   },
 
   deleteClientById: async (id: number): Promise<boolean> => {
-    const deletedCount = await ClientModel.destroy({
-      where: { id }
-    })
+    const deletedCount = await ClientModel.destroy({ where: { id } })
     return deletedCount > 0
   },
 }
 
-export {
-  clientRepository
-}
+export { clientRepository }
