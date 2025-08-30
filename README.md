@@ -1,79 +1,64 @@
 
-# Smart Maître - Backend
+# Smart Maître Backend
 
-API desenvolvida com Node.js, Express, TypeScript e Sequelize para gerenciar pedidos e pagamentos em estabelecimentos como bares e restaurantes.
-
-## Tecnologias Utilizadas
+API backend para gerenciar pedidos e pagamentos em estabelecimentos como bares e restaurantes, desenvolvida em Node.js com TypeScript e Express.
+O projeto utiliza Sequelize ORM com banco de dados MySQL, suporte a autenticação via JWT e criptografia de senhas com bcrypt.
+## 🚀 Tecnologias Utilizadas
 
 - Node.js
-- Express
 - TypeScript
-- Sequelize
-- PostgreSQL
+- Express
+- Sequelize ORM
+- MySQL
+- bcrypt
+- jsonwebtoken (JWT)
 - dotenv
-- body-parser
-- ts-node-dev
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ```bash
 src/
-├── controllers/
-├── database/
-├── middlewares/
-├── models/
-├── routes/
-├── services/
-├── types/
-└── server.ts
+│
+├── controllers/       # Controladores da aplicação
+├── database/          # Configuração do banco e instância do Sequelize
+├── middlewares/       # Middlewares (autenticação, tratamento de erros, etc.)
+├── models/            # Models do Sequelize
+├── repositories/      # Camada de acesso a dados
+├── services/          # Lógica de negócio
+├── utils/             # Funções utilitárias (httpResponse, sanitizers, etc.)
+├── validators/        # Validações e mensagens de erro
+├── app.ts             # Configuração principal do Express
+├── routes.ts          # Definição de rotas
+└── server.ts          # Inicialização do servidor
 ```
 
-## Como Rodar o Projeto
+## ⚙️ Configuração do Ambiente
 
-### 1. Clone o repositório
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
 
 ```bash
-git clone https://github.com/alberyReis/smart_maitre_backend.git
-cd smart_maitre_backend
+SERVER_PORT=3000
+DB_NAME=smart_maitre
+DB_USER=seu_usuario_aqui 
+DB_PASSWORD=sua_senha_aqui 
+DB_HOST=localhost
+JWT_SECRET=seu_token_jwt_aqui 
 ```
 
-### 2. Instale as dependências
+### 🛠️ Scripts Disponíveis
 
 ```bash
 npm install
 ```
-
-### 3. Configure as variáveis de ambiente
-
-Crie um arquivo .env na raiz do projeto com os dados do seu banco:
-
 ```bash
-SERVER_PORT=porta
-DB_NAME=smart_maitre
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-DB_HOST=localhost
-JWT_SECRET=segredo_super_secreto
+npm run build
+```
+```bash
+npm start
 ```
 
-### 4. Crie o banco de dados e rode o projeto
+### 📌 Repositório
 
-```bash
-npx sequelize db:create
-npm run dev
-```
-
-A API ficará disponível em http://localhost:3000.
-
-### Funcionalidades
- Cadastro e autenticação de usuários
-
- Abertura e fechamento de mesas
-
- Registro e controle de pedidos
-
- Pagamento via débito, crédito e Pix
-
- Histórico e relatórios
+👉 GitHub - smart_maitre_backend
 
 
